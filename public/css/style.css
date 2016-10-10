@@ -1,0 +1,51 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+.navbar-inverse {
+	transition: background 1s ease 0s;
+	background: #0079bf none repeat scroll 0 0;
+	border: none;
+}
+.navbar-brand {
+
+}
+.global-header-section-logo-image {
+	height: 100%;
+}
+
+img {
+	vertical-align: middle;
+}
+*{
+	font-family: "jaf-facitweb","Helvetica Neue",Arial,sans-serif;
+}
+
+.btn-login {
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #61bd4f 0px, #5aac44 100%) repeat scroll 0 0;
+}
+.navbar-inverse .navbar-nav > .active > a{
+	background-color: #5cb85c;
+}
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:active,
+.navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: #4cae4c;
+}
+.navbar-toggle {
+	border: none;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:active, .navbar-inverse .navbar-toggle:hover {
+	background-color: #5cb85c;
+}
+
+/*
+
+*/

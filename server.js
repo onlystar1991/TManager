@@ -15,6 +15,7 @@ var User = require('./models/User').User;
 var app = express();
 
 mongoose.connect(configDB.url);
+// mongoose.connect(configDB.url);
 require('./config/passport')(passport);
 
 app.set('port', process.env.PORT || 3000);
@@ -46,58 +47,63 @@ app.use(function(req, res, next) {
     // Request headers you wish to allow
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Access-Control-Allow-Origin');
     // intercept OPTIONS method
+    
     if ('OPTIONS' == req.method) {
         res.send(200);
     } else {
         next();
     }
-
-
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// console.log("here is app start");
 // Local Strategy Routes
 app.post('/api/login', passport.authenticate('local-login'), function(req, res) {
     res.cookie('user', JSON.stringify(req.user));
     res.send(req.user); // Always req.user and NOT req.member or req.operator (not based on model name)
 });
 
-
 app.post('/api/signup', passport.authenticate('local-signup'), function(req, res) {
     res.cookie('user', JSON.stringify(req.user));
     res.send(req.user); // req.user and NOT req.operator
 });
 
-// Google Strategy Routes
-app.get('/auth/google/', passport.authenticate('google', {
-    scope: ['profile', 'email']
-}));
-
-// callback after google has authenticated the user
-app.get('/google/oauth2callback',
-    passport.authenticate('google'));
-
-app.get('/api/logout', function(req, res, next) {
-    req.logout();
-    res.send(200);
-});
-
-app.get('/auth/facebook', passport.authenticate('facebook', {
-    scope: 'email'
-}));
-
-// handle the callback after facebook has authenticated the user
-app.get('/facebook/oauth2callback',
-    passport.authenticate('facebook'));
+///
 
 
-// Google Strategy Routes
-app.get('/auth/twitter', passport.authenticate('twitter'));
+// // Google Strategy Routes
+// app.get('/auth/google/', passport.authenticate('google', {
+//     scope: ['profile', 'email']
+// }));
 
-// callback after google has authenticated the user
-app.get('/twitter/oauth2callback',
-    passport.authenticate('twitter'));
+// // callback after google has authenticated the user
+// app.get('/google/oauth2callback',
+//     passport.authenticate('google'));
+
+// app.get('/api/logout', function(req, res, next) {
+//     req.logout();
+//     res.send(200);
+// });
+
+// app.get('/auth/facebook', passport.authenticate('facebook', {
+//     scope: 'email'
+// }));
+
+// // handle the callback after facebook has authenticated the user
+// app.get('/facebook/oauth2callback',
+//     passport.authenticate('facebook'));
+
+
+// // Google Strategy Routes
+// app.get('/auth/twitter', passport.authenticate('twitter'));
+
+// // callback after google has authenticated the user
+// app.get('/twitter/oauth2callback',
+//     passport.authenticate('twitter'));
+
+
+///
 
 // To fix Cannot GET /route on hitting Refresh with Angular
 app.get('*', function(req, res) {

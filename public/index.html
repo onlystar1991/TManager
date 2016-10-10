@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html ng-app="nAuthApp">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Node Authentication</title>
-    <link rel="icon" type="image/png" href="favicon.png"/>
-    <link href="stylesheets/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <a href='/'> <strong> NAuth </strong> </a> 
-    <div ng-view></div>
-    <script src="vendor/angular.min.js"></script>
-    <script src="vendor/angular-route.min.js"></script>
-    <script src="vendor/angular-cookies.min.js"></script>
-    <script src="app.js"></script>
-    <script src="services.js"></script>
-  </body>
+<html ng-app="trelloApp">
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Node Authentication</title>
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div ng-view></div>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular-route/angular-route.min.js"></script>
+        <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers/DashboardController.js"></script>
+        <script src="js/controllers/LoginController.js"></script>
+        <script src="js/controllers/OAuthController.js"></script>
+        <script src="js/controllers/WelcomeController.js"></script>
+
+        <script src="js/services.js"></script>
+    </body>
 </html>
