@@ -27,6 +27,10 @@
 </nav>
 
 <div class="container">
+  <div class="alert alert-danger" ng-if="login.errors">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+    {{login.errors}}
+  </div>
   <div class="panel panel-default devise-bs">
     <div class="panel-heading">
       <h4>Sign In</h4>

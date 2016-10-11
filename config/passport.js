@@ -28,7 +28,7 @@ module.exports = function(passport) {
         },
         function(req, email, password, done) {
             User.findOne({
-                email: email
+                email: req.body.email
             }, function(err, user) {
                 if (err)
                     return done(err);
@@ -62,16 +62,17 @@ module.exports = function(passport) {
             User.findOne({
                 'local.email': req.body.email
             }, function(err, user) {
-                if (err)
+                if (err) {
                     return done(err);
+                }
                 if (!user) {
                     console.log("User does not exists");
-                    
+                    console.log(done);
                     return done(null, false, {
                         loginMessage: 'User does not exists'
                     });
                 }
-                console.log("User exists");
+
                 if (!user.validPassword(password)) {
                     console.log("Incorrect Password");
                     return done(null, false, {

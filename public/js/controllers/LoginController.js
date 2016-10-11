@@ -27,7 +27,7 @@ trelloApp.controller('LoginController', function($scope, $location, UserService)
         .then(function(user) {
             $location.path('/dashboard');
         }, function(reason) {
-            $scope.login.errors = reason;
+            $scope.login.errors = "Invalid email/password.";
         });
     };
 })

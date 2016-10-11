@@ -12,6 +12,8 @@ var session = require('express-session');
 // models
 var User = require('./models/User').User;
 
+var CheckList = require('./models/CheckList').CheckList;
+
 var app = express();
 
 mongoose.connect(configDB.url);
